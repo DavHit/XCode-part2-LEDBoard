@@ -25,22 +25,22 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var orangeButton: UIButton!
     
     weak var delegate: LEDBoardSettingDelegate?
-    var ledText : String?
+    var ledText : String?   //설정 초기화 되는 것을 방지하기 위해 추가
     var textColor: UIColor = .yellow
     var backgroundColor: UIColor = .black
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureView()
+        self.configureView()        //led화면에 넘겨준 값들이 저장이 안 됨
     }
     
-    private func configureView() {
+    private func configureView() {  //설정 초기화 되는 것을 방지하기 위해 method 추가
         if let ledText = self.ledText {
-            self.textField.text = ledText
+            self.textField.text = ledText   //view의 구성 중 텍스트를 지정
         }
-        self.changeTextColor(color: self.textColor)
-        self.changeBackgroundColor(color: self.backgroundColor)
+        self.changeTextColor(color: self.textColor)     //view 구성 중 텍스트 색상
+        self.changeBackgroundColor(color: self.backgroundColor)     //view 구성 중 배경 색상
     }
     
     @IBAction func tapTextColorButton(_ sender: UIButton) {
